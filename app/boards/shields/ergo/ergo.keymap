@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+
+
+/* レイヤー名指定 */
+/* LAYER01 =>  vscodoやスクリーンショット・キー移動などのコマンドメインのレイヤー */
+/* LAYER02 =>  記号などメインのレイヤー */
+/* LAYER03 =>  数字などがメインのレイヤー */
+#define DEFAULT 0
+#define LAYER01 1
+#define LAYER02 2
+#define LAYER03 3
+
+/* ltのタイミング設定 */
+&mt {
+    tapping-term-ms = <200>;
+};
+
+
+
+/ {
+
+
+
+  keymap {
+    compatible = "zmk,keymap";
+
+
+  /* DEFAULT LAYER */
+
+    default_layer {
+      bindings = <
+        &kp ESC     &kp Q  &kp P  &kp U  &kp Y  &kp MINUS  &kp LG(Z)                                    &kp PLUS   &kp J     &kp D     &kp H     &kp G   &kp W    &kp LCTRL
+        &kp TAB     &kp I  &kp O  &kp E  &kp A  &kp DOT  &kp LG(LS(Z))                                   &kp MINUS  &kp K     &kp T     &kp N     &kp S   &kp R    &kp BACKSPACE
+        &kp LSHIFT  &kp Z  &kp X  &kp C  &kp COMMA  &kp LS(RIGHT_BRACKET)  &kp LS(ENTER)               &kp LG(ENTER)  &kp M     &kp L     &kp F     &kp B   &kp V    &kp DELETE
+        &kp LG(LCTRL) &kp LA(LSHIFT) &kp LGUI &kp LGUI &kp ENTER &kp LGUI              &kp RGUI &kp SPACE &kp RGUI    &kp RGUI   &kp RALT  &kp SPACE
+      >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+    };
+
+
+
+
+  };
+};

@@ -1,0 +1,27 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MITif SHIELD_ERGO_LEFT
+
+if SHIELD_ERGO_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "ergo_left"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif
+
+if SHIELD_ERGO_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "ergo_right"
+
+endif
+
+if SHIELD_ERGO_LEFT || SHIELD_ERGO_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+
+endif
